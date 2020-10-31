@@ -19,7 +19,7 @@ export default {
 
         const orphanagesRepository = getRepository(Orphanage);
 
-        const orphanage = await orphanagesRepository.findOneOrFail({
+        const orphanage = await orphanagesRepository.findOneOrFail(id,{
             relations:['images']
         });
 
@@ -50,7 +50,7 @@ export default {
             about,
             instructions,
             opening_hours,
-            open_on_weekends,
+            open_on_weekends: open_on_weekends === 'true',
             images
         }
 
